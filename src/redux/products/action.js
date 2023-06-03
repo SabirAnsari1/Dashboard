@@ -3,17 +3,17 @@ import {
   GET_PRODUCTS_SUCCESS,
   PATCH_PRODUCT_SUCCESS,
   POST_PRODUCT_SUCCESS,
-  PRODUCTS_FAILURE,
-  PRODUCTS_REQUEST,
+  PRODUCT_FAILURE,
+  PRODUCT_REQUEST,
 } from "../actionTypes";
 import axios from "axios";
 
-export const productsRequestAction = () => {
-  return { type: PRODUCTS_REQUEST };
+export const productRequestAction = () => {
+  return { type: PRODUCT_REQUEST };
 };
 
-export const productsFailureAction = (payload) => {
-  return { type: PRODUCTS_FAILURE, payload };
+export const productFailureAction = (payload) => {
+  return { type: PRODUCT_FAILURE, payload };
 };
 
 export const getProductsSuccessAction = (payload) => {
@@ -29,56 +29,56 @@ export const patchProductSuccessAction = () => {
 };
 
 export const deleteProductSuccessAction = () => {
-  return { type: PATCH_PRODUCT_SUCCESS };
+  return { type: DELETE_PRODUCT_SUCCESS };
 };
 
 export const getProducts = (queryParams) => async (dispatch) => {
   try {
-    dispatch(productsRequestAction());
+    dispatch(productRequestAction());
     const res = await axios.get(
       `https://odd-necklace-pike.cyclic.app/products`,
       queryParams
     );
     dispatch(getProductsSuccessAction(res));
   } catch (err) {
-    dispatch(productsFailureAction(err.message));
+    dispatch(productFailureAction(err.message));
   }
 };
 
 export const postProduct = (newProduct) => async (dispatch) => {
   try {
-    dispatch(productsRequestAction());
+    dispatch(productRequestAction());
     const res = await axios.post(
       `https://odd-necklace-pike.cyclic.app/products`,
       newProduct
     );
     dispatch(postProductSuccessAction());
   } catch (err) {
-    dispatch(productsFailureAction(err.message));
+    dispatch(productFailureAction(err.message));
   }
 };
 
 export const editProduct = (id, newProduct) => async (dispatch) => {
   try {
-    dispatch(productsRequestAction());
+    dispatch(productRequestAction());
     const res = await axios.patch(
       `https://odd-necklace-pike.cyclic.app/products/${id}`,
       newProduct
     );
     dispatch(patchProductSuccessAction());
   } catch (err) {
-    dispatch(productsFailureAction(err.message));
+    dispatch(productFailureAction(err.message));
   }
 };
 
 export const deleteProduct = (id) => async (dispatch) => {
   try {
-    dispatch(productsRequestAction());
+    dispatch(productRequestAction());
     const res = await axios.delete(
       `https://odd-necklace-pike.cyclic.app/products/${id}`
     );
     dispatch(deleteProductSuccessAction());
   } catch (err) {
-    dispatch(productsFailureAction(err.message));
+    dispatch(productFailureAction(err.message));
   }
 };

@@ -2,8 +2,8 @@ import {
   DELETE_PRODUCT_SUCCESS,
   GET_PRODUCTS_SUCCESS,
   POST_PRODUCT_SUCCESS,
-  PRODUCTS_FAILURE,
-  PRODUCTS_REQUEST,
+  PRODUCT_FAILURE,
+  PRODUCT_REQUEST,
   PATCH_PRODUCT_SUCCESS,
 } from "../actionTypes";
 
@@ -17,10 +17,10 @@ const initState = {
 
 export const productsReducer = (state = initState, { type, payload }) => {
   switch (type) {
-    case PRODUCTS_REQUEST: {
+    case PRODUCT_REQUEST: {
       return { ...state, isLoading: true, isError: false };
     }
-    case PRODUCTS_FAILURE: {
+    case PRODUCT_FAILURE: {
       return { ...state, isLoading: false, isError: true, errMessage: payload };
     }
     case GET_PRODUCTS_SUCCESS: {

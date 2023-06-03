@@ -44,7 +44,7 @@ export const EditProduct = () => {
   };
 
   return (
-    <Box>
+    <Box textAlign={"center"} mt={"3rem"}>
       {isLoading ? (
         <Heading>Updating...</Heading>
       ) : isError ? (
