@@ -35,7 +35,10 @@ export const deleteProductSuccessAction = () => {
 export const getProducts = (queryParams) => async (dispatch) => {
   try {
     dispatch(productsRequestAction());
-    const res = await axios.get(`http://localhost:8080/products`, queryParams);
+    const res = await axios.get(
+      `https://odd-necklace-pike.cyclic.app/products`,
+      queryParams
+    );
     dispatch(getProductsSuccessAction(res));
   } catch (err) {
     dispatch(productsFailureAction(err.message));
@@ -45,7 +48,10 @@ export const getProducts = (queryParams) => async (dispatch) => {
 export const postProduct = (newProduct) => async (dispatch) => {
   try {
     dispatch(productsRequestAction());
-    const res = await axios.post(`http://localhost:8080/products`, newProduct);
+    const res = await axios.post(
+      `https://odd-necklace-pike.cyclic.app/products`,
+      newProduct
+    );
     dispatch(postProductSuccessAction());
   } catch (err) {
     dispatch(productsFailureAction(err.message));
@@ -56,7 +62,7 @@ export const editProduct = (id, newProduct) => async (dispatch) => {
   try {
     dispatch(productsRequestAction());
     const res = await axios.patch(
-      `http://localhost:8080/products/${id}`,
+      `https://odd-necklace-pike.cyclic.app/products/${id}`,
       newProduct
     );
     dispatch(patchProductSuccessAction());
@@ -68,7 +74,9 @@ export const editProduct = (id, newProduct) => async (dispatch) => {
 export const deleteProduct = (id) => async (dispatch) => {
   try {
     dispatch(productsRequestAction());
-    const res = await axios.delete(`http://localhost:8080/products/${id}`);
+    const res = await axios.delete(
+      `https://odd-necklace-pike.cyclic.app/products/${id}`
+    );
     dispatch(deleteProductSuccessAction());
   } catch (err) {
     dispatch(productsFailureAction(err.message));
