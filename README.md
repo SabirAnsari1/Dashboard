@@ -3,7 +3,7 @@
 CRUD-Dashboard is a web-based application that provides a user-friendly interface for performing CRUD (Create, Read, Update, Delete) operations on a database. It allows users to interact with their data easily and efficiently.
 
 ## Features
-__Create__: Users can create new records in the database by filling out a form with relevant information.
+_Create_: Users can create new records in the database by filling out a form with relevant information.
 Read: Users can view existing records in a tabular format, filter, and sort them based on specific criteria.
 Update: Users can edit and update the information of existing records directly from the dashboard.
 Delete: Users can delete unwanted records from the database using a simple interface.
