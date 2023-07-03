@@ -7,6 +7,7 @@ import {
   PRODUCT_REQUEST,
 } from "../actionTypes";
 import axios from "axios";
+const URL = `https://odd-necklace-pike.cyclic.app/products`;
 
 export const productRequestAction = () => {
   return { type: PRODUCT_REQUEST };
@@ -35,10 +36,7 @@ export const deleteProductSuccessAction = () => {
 export const getProducts = (queryParams) => async (dispatch) => {
   try {
     dispatch(productRequestAction());
-    const res = await axios.get(
-      `https://odd-necklace-pike.cyclic.app/products`,
-      queryParams
-    );
+    const res = await axios.get(URL, queryParams);
     dispatch(getProductsSuccessAction(res));
   } catch (err) {
     dispatch(productFailureAction(err.message));
@@ -48,10 +46,7 @@ export const getProducts = (queryParams) => async (dispatch) => {
 export const postProduct = (newProduct) => async (dispatch) => {
   try {
     dispatch(productRequestAction());
-    const res = await axios.post(
-      `https://odd-necklace-pike.cyclic.app/products`,
-      newProduct
-    );
+    const res = await axios.post(URL, newProduct);
     dispatch(postProductSuccessAction());
   } catch (err) {
     dispatch(productFailureAction(err.message));
@@ -61,10 +56,7 @@ export const postProduct = (newProduct) => async (dispatch) => {
 export const editProduct = (id, newProduct) => async (dispatch) => {
   try {
     dispatch(productRequestAction());
-    const res = await axios.patch(
-      `https://odd-necklace-pike.cyclic.app/products/${id}`,
-      newProduct
-    );
+    const res = await axios.patch(`${URL}/${id}`, newProduct);
     dispatch(patchProductSuccessAction());
   } catch (err) {
     dispatch(productFailureAction(err.message));
@@ -74,9 +66,7 @@ export const editProduct = (id, newProduct) => async (dispatch) => {
 export const deleteProduct = (id) => async (dispatch) => {
   try {
     dispatch(productRequestAction());
-    const res = await axios.delete(
-      `https://odd-necklace-pike.cyclic.app/products/${id}`
-    );
+    const res = await axios.delete(`${URL}/${id}`);
     dispatch(deleteProductSuccessAction());
   } catch (err) {
     dispatch(productFailureAction(err.message));

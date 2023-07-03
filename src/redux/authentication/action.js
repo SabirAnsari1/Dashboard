@@ -1,10 +1,6 @@
-import {
-  LOGIN_FAILURE,
-  LOGIN_REQUEST,
-  LOGIN_SUCCESS,
-  LOGOUT_SUCCESS,
-} from "../actionTypes";
+import { LOGIN_FAILURE, LOGIN_REQUEST, LOGIN_SUCCESS, LOGOUT_SUCCESS } from "../actionTypes";
 import axios from "axios";
+const URL = `https://reqres.in/api/login`;
 
 export const loginRequestAction = () => {
   return { type: LOGIN_REQUEST };
@@ -25,7 +21,7 @@ export const logoutSuccessAction = () => {
 export const login = (user) => async (dispatch) => {
   try {
     dispatch(loginRequestAction());
-    const res = await axios.post(`https://reqres.in/api/login`, user);
+    const res = await axios.post(URL, user);
     dispatch(loginSuccessAction(res.data.token));
   } catch (err) {
     dispatch(loginFailureAction(err.message));
