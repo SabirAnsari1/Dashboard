@@ -8,6 +8,12 @@ _Read:_ Users can view existing records in a tabular format, filter, and sort th
 _Update:_ Users can edit and update the information of existing records directly from the dashboard.
 _Delete:_ Users can delete unwanted records from the database using a simple interface.
 
+## Login credentials
+Use these login credentials to log in to Dashboard
+_Email:_ eve.holt@reqres.in
+_Password:_ Any password accepted
+
+
 ## Usage
 _Create:_ On the dashboard, click the "Admin" link to open the Create form. Fill in the required information and click "Add Product" to create a new record.
 
