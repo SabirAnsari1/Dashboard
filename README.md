@@ -2,25 +2,25 @@
 
 CRUD-Dashboard is a web-based application that provides a user-friendly interface for performing CRUD (Create, Read, Update, Delete) operations on a database. It allows users to interact with their data easily and efficiently.
 
-Features
-Create: Users can create new records in the database by filling out a form with relevant information.
-Read: Users can view existing records in a tabular format, filter, and sort them based on specific criteria.
-Update: Users can edit and update the information of existing records directly from the dashboard.
-Delete: Users can delete unwanted records from the database using a simple interface.
+## Features
+### Create: Users can create new records in the database by filling out a form with relevant information.
+### Read: Users can view existing records in a tabular format, filter, and sort them based on specific criteria.
+### Update: Users can edit and update the information of existing records directly from the dashboard.
+### Delete: Users can delete unwanted records from the database using a simple interface.
 
-Usage
-Create: On the dashboard, click the "Admin" link to open the Create form. Fill in the required information and click "Add Product" to create a new record.
+## Usage
+### Create: On the dashboard, click the "Admin" link to open the Create form. Fill in the required information and click "Add Product" to create a new record.
 
-Read: The dashboard displays existing records in a table. Use the column headers to sort the records. You can also filter the records based on specific criteria by selecting the desired options from the filter options.
+### Read: The dashboard displays existing records in a table. Use the column headers to sort the records. You can also filter the records based on specific criteria by selecting the desired options from the filter options.
 
-Update: To update a record, click the "Edit" button next to the record you want to modify. The record's information will be loaded into an editable form. Make the necessary changes and click "Add Product" to update the record.
+### Update: To update a record, click the "Edit" button next to the record you want to modify. The record's information will be loaded into an editable form. Make the necessary changes and click "Add Product" to update the record.
 
-Delete: To delete a record, click the "Delete" button next to the record you want to remove. A confirmation prompt will appear, asking you to confirm the deletion. Click "Delete" to delete the record.
+### Delete: To delete a record, click the "Delete" button next to the record you want to remove. A confirmation prompt will appear, asking you to confirm the deletion. Click "Delete" to delete the record.
 
-Contributing
+## Contributing
 Contributions are welcome! If you find any issues or want to add new features, please create a pull request and provide a detailed description of your changes.
 
-Acknowledgments
+## Acknowledgments
 CRUD-Dashboard was inspired by the need for a simple and intuitive tool to interact with databases. It utilizes various open-source libraries and frameworks to provide a seamless user experience.
 
 1. HTML5
@@ -32,5 +32,5 @@ CRUD-Dashboard was inspired by the need for a simple and intuitive tool to inter
 7. Redux Thunk
 8. Chakra UI
    
-Contact
+## Contact
 If you have any questions or suggestions regarding CRUD-Dashboard, please feel free to contact the project maintainer at email@example.com.
