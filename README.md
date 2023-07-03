@@ -4,18 +4,18 @@ CRUD-Dashboard is a web-based application that provides a user-friendly interfac
 
 ## Features
 _Create_: Users can create new records in the database by filling out a form with relevant information.
-Read: Users can view existing records in a tabular format, filter, and sort them based on specific criteria.
-Update: Users can edit and update the information of existing records directly from the dashboard.
-Delete: Users can delete unwanted records from the database using a simple interface.
+_Read_: Users can view existing records in a tabular format, filter, and sort them based on specific criteria.
+_Update_: Users can edit and update the information of existing records directly from the dashboard.
+_Delete_: Users can delete unwanted records from the database using a simple interface.
 
 ## Usage
-Create: On the dashboard, click the "Admin" link to open the Create form. Fill in the required information and click "Add Product" to create a new record.
+_Create:_ On the dashboard, click the "Admin" link to open the Create form. Fill in the required information and click "Add Product" to create a new record.
 
-Read: The dashboard displays existing records in a table. Use the column headers to sort the records. You can also filter the records based on specific criteria by selecting the desired options from the filter options.
+_Read:_ The dashboard displays existing records in a table. Use the column headers to sort the records. You can also filter the records based on specific criteria by selecting the desired options from the filter options.
 
-Update: To update a record, click the "Edit" button next to the record you want to modify. The record's information will be loaded into an editable form. Make the necessary changes and click "Add Product" to update the record.
+_Update:_ To update a record, click the "Edit" button next to the record you want to modify. The record's information will be loaded into an editable form. Make the necessary changes and click "Add Product" to update the record.
 
-Delete: To delete a record, click the "Delete" button next to the record you want to remove. A confirmation prompt will appear, asking you to confirm the deletion. Click "Delete" to delete the record.
+_Delete:_ To delete a record, click the "Delete" button next to the record you want to remove. A confirmation prompt will appear, asking you to confirm the deletion. Click "Delete" to delete the record.
 
 ## Contributing
 Contributions are welcome! If you find any issues or want to add new features, please create a pull request and provide a detailed description of your changes.
