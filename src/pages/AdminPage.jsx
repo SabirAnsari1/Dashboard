@@ -121,7 +121,9 @@ export const AdminPage = () => {
             fontWeight={"semibold"}
             mb={"1rem"}
           >
-            <option>Select</option>
+            <option>Select Product Category</option>
+            <option value="cosmetic">Cosmetic</option>
+            <option value="home-decor">Home Decor</option>
             <option value="top-wear">Top Wear</option>
             <option value="bottom-wear">Bottom Wear</option>
             <option value="foot-wear">Foot Wear</option>
@@ -135,7 +137,7 @@ export const AdminPage = () => {
             fontWeight={"semibold"}
             mb={"1rem"}
           >
-            <option>Select</option>
+            <option>Select Product Gender</option>
             <option value="male">Men</option>
             <option value="female">Women</option>
             <option value="kids">Kids</option>
@@ -149,7 +151,7 @@ export const AdminPage = () => {
             fontWeight={"semibold"}
             mb={"1rem"}
           >
-            <option>Select</option>
+            <option>Select Product Size</option>
             <option value="s">Small</option>
             <option value="m">Medium</option>
             <option value="l">Large</option>
