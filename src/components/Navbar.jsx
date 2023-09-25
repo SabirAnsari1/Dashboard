@@ -1,6 +1,15 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { Box, Button, IconButton, useColorMode, Text, Image, Center, Flex } from "@chakra-ui/react";
+import {
+  Box,
+  Button,
+  IconButton,
+  useColorMode,
+  Text,
+  Image,
+  Center,
+  Flex,
+} from "@chakra-ui/react";
 import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../redux/authentication/action";
 import { FaSun, FaMoon } from "react-icons/fa";
@@ -33,7 +42,11 @@ export const Navbar = () => {
       </Box>
 
       <Button bg={"orange"}>
-        {isAuth ? <Text onClick={handleLogout}>Logout</Text> : <Link to={"/login"}>Login</Link>}
+        {isAuth ? (
+          <Text onClick={handleLogout}>Logout</Text>
+        ) : (
+          <Link to={"/login"}>Login</Link>
+        )}
       </Button>
 
       <IconButton

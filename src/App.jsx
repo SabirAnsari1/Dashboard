@@ -1,9 +1,12 @@
 import { Navbar } from "./components/Navbar";
 import { AllRoutes } from "./pages/AllRoutes";
-import { Box } from "@chakra-ui/react";
-
+import { useColorModeValue, Box } from "@chakra-ui/react";
 function App() {
+  const bgColor = useColorModeValue("white", "black");
+  const color = useColorModeValue("black", "white");
+
   return (
+    // <Box bgColor={bgColor} color={color}>
     <Box>
       <Box
         h={"70px"}
@@ -14,7 +17,6 @@ function App() {
         pos={"sticky"}
         top={"0"}
         p={"0 3rem 0 3rem"}
-        // color={"white"}
         zIndex={1}
       >
         <Navbar />

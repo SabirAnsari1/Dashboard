@@ -39,6 +39,12 @@ export const ProductsList = memo(() => {
     dispatch(getProducts(queryParams));
   }, [page, searchParams]);
 
+  useEffect(() => {
+    if (products.length === 0 && page > 1) {
+      setPage(1);
+    }
+  }, [products]);
+
   const handlePage = (pgno) => {
     setPage(pgno);
   };
