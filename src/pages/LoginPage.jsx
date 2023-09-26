@@ -18,12 +18,13 @@ export const LoginPage = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const dispatch = useDispatch();
-  const { isLoading, isError, errMessage, isAuth } = useSelector(
+  const { isLoading, isError, errMessage, isAuth, logoutMsg } = useSelector(
     (store) => ({
       isLoading: store.authReducer.isLoading,
       isError: store.authReducer.isError,
       errMessage: store.authReducer.errMessage,
       isAuth: store.authReducer.isAuth,
+      logoutMsg: store.authReducer.logoutMsg,
     }),
     shallowEqual
   );
@@ -58,7 +59,9 @@ export const LoginPage = () => {
       ) : isError ? (
         <Heading color={"red"}>{errMessage}</Heading>
       ) : isAuth ? (
-        <Heading color={"green"}>Login Successful!!!</Heading>
+        <Heading color={"green"}>Login Successfull</Heading>
+      ) : logoutMsg ? (
+        <Heading color={"green"}>{logoutMsg}</Heading>
       ) : (
         ""
       )}

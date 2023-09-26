@@ -6,6 +6,7 @@ import { Pagination } from "./Pagination";
 import { Box, Heading, SimpleGrid } from "@chakra-ui/react";
 import { useSearchParams } from "react-router-dom";
 import { memo } from "react";
+import { Navbar } from "./Navbar";
 
 export const ProductsList = memo(() => {
   const dispatch = useDispatch();
@@ -21,10 +22,12 @@ export const ProductsList = memo(() => {
   );
   const [page, setPage] = useState(1);
   const [limit] = useState(12);
+  const [query, setQuery] = useState("");
   const [searchParams] = useSearchParams();
 
   const queryParams = {
     params: {
+      q: query && query,
       _limit: limit,
       _page: page,
       category: searchParams.getAll("category"),
@@ -37,7 +40,7 @@ export const ProductsList = memo(() => {
 
   useEffect(() => {
     dispatch(getProducts(queryParams));
-  }, [page, searchParams]);
+  }, [query, page, searchParams]);
 
   useEffect(() => {
     if (products.length === 0 && page > 1) {

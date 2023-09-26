@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import {
   Box,
@@ -7,16 +7,23 @@ import {
   useColorMode,
   Text,
   Image,
-  Center,
   Flex,
+  InputGroup,
+  InputLeftElement,
+  Input,
+  InputRightElement,
 } from "@chakra-ui/react";
 import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../redux/authentication/action";
 import { FaSun, FaMoon } from "react-icons/fa";
 import logoDark from "../assets/logo-dark.png";
 import logoLight from "../assets/logo-light.png";
+import { MdSearch, MdCancel } from "react-icons/md";
+import { FaUser, FaUserSlash } from "react-icons/fa";
+// import { AiOutlineLogin, AiOutlineLogout } from "react-icons/ai";
+import { BiSolidLogInCircle, BiSolidLogOutCircle } from "react-icons/bi";
 
-export const Navbar = () => {
+export const Navbar = ({ query, setQuery }) => {
   const { colorMode, toggleColorMode } = useColorMode();
   const isAuth = useSelector((store) => store.authReducer.isAuth);
   const dispatch = useDispatch();
@@ -26,34 +33,93 @@ export const Navbar = () => {
   };
 
   return (
-    <Box minW={"100%"} display={"flex"} justifyContent={"space-between"}>
+    <Flex minW={"100%"} justify={"space-between"} align={"center"}>
       <Flex justify={"center"} align={"center"} color={"white"} w={"6%"}>
         <Link to={"/"}>
           <Image src={logoDark} alt={"Home"} minW={"100%"} />
         </Link>
       </Flex>
 
-      {/* <Box color={"white"}>
-        <Link to={"/"}>Home</Link>
-      </Box> */}
+      {/* search-bar */}
+      <Flex
+        w={{
+          base: "20%",
+          sm: "20%",
+          md: "30%",
+          lg: "40%",
+          xl: "50%",
+          "2xl": "50%",
+        }}
+        align={"center"}
+      >
+        <InputGroup>
+          <InputLeftElement>
+            <IconButton
+              aria-label={"search"}
+              icon={<MdSearch />}
+              cursor={"default"}
+            />
+          </InputLeftElement>
+          <Input
+            type="text"
+            placeholder="Search your product..."
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
+            variant="filled"
+            border={"none"}
+            pl={"50px"}
+            color={"white"}
+          />
+          {/* <InputRightElement>
+            <IconButton
+              aria-label={"search"}
+              icon={<MdCancel />}
+              onClick={() => setQuery("")}
+              opacity={query ? "inherit" : "0"}
+              cursor={query ? "pointer" : "default"}
+              bg={"transparent"}
+            />
+          </InputRightElement> */}
+        </InputGroup>
+      </Flex>
 
-      <Box color={"white"}>
-        <Link to={"/admin"}>Admin</Link>
-      </Box>
+      <Flex w={"12%"} justify={"space-between"} align={"center"}>
+        <Link to={"/admin"}>
+          <IconButton
+            aria-label={"admin"}
+            icon={isAuth ? <FaUser /> : <FaUserSlash />}
+            isRound
+          />
+        </Link>
 
-      <Button bg={"orange"}>
         {isAuth ? (
-          <Text onClick={handleLogout}>Logout</Text>
+          <Link>
+            <IconButton
+              aria-label={"auth"}
+              icon={<BiSolidLogOutCircle />}
+              isRound
+              onClick={() => handleLogout()}
+            />
+          </Link>
         ) : (
-          <Link to={"/login"}>Login</Link>
+          <Link to={"/login"}>
+            <IconButton
+              aria-label={"auth"}
+              icon={<BiSolidLogInCircle />}
+              isRound
+            />
+          </Link>
         )}
-      </Button>
 
-      <IconButton
-        icon={colorMode === "light" ? <FaMoon /> : <FaSun />}
-        isRound
-        onClick={toggleColorMode}
-      />
-    </Box>
+        <Link>
+          <IconButton
+            aria-label={"toggle"}
+            icon={colorMode === "light" ? <FaMoon /> : <FaSun />}
+            isRound
+            onClick={toggleColorMode}
+          />
+        </Link>
+      </Flex>
+    </Flex>
   );
 };

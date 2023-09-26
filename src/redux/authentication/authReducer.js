@@ -11,6 +11,7 @@ const initState = {
   isAuth: false,
   errMessage: "",
   token: "",
+  logoutMsg: "",
 };
 
 export const authReducer = (state = initState, { type, payload }) => {
@@ -25,7 +26,13 @@ export const authReducer = (state = initState, { type, payload }) => {
       return { ...state, isLoading: false, isAuth: true, token: payload };
     }
     case LOGOUT_SUCCESS: {
-      return { ...state, isLoading: false, isAuth: false, token: "" };
+      return {
+        ...state,
+        isLoading: false,
+        isAuth: false,
+        token: "",
+        logoutMsg: "Logout Successfull",
+      };
     }
     default:
       return state;
