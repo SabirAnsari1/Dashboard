@@ -10,6 +10,7 @@ import {
   InputGroup,
   IconButton,
   useColorMode,
+  useToast,
 } from "@chakra-ui/react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { FaRegEyeSlash, FaRegEye } from "react-icons/fa";
@@ -18,13 +19,13 @@ export const LoginPage = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const dispatch = useDispatch();
-  const { isLoading, isError, errMessage, isAuth, logoutMsg } = useSelector(
+  const { isLoading, isError, errMessage, isAuth, isLogout } = useSelector(
     (store) => ({
       isLoading: store.authReducer.isLoading,
       isError: store.authReducer.isError,
       errMessage: store.authReducer.errMessage,
       isAuth: store.authReducer.isAuth,
-      logoutMsg: store.authReducer.logoutMsg,
+      isLogout: store.authReducer.isLogout,
     }),
     shallowEqual
   );
@@ -32,6 +33,8 @@ export const LoginPage = () => {
   const loction = useLocation();
   const navigate = useNavigate();
   const { colorMode } = useColorMode();
+
+  const toast = useToast();
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -52,19 +55,46 @@ export const LoginPage = () => {
   //   isAuth && navigate(loction.state, { replace: true });
   // }, [isAuth]);
 
+  useEffect(() => {
+    {
+      isLoading
+        ? toast({
+            title: `Loading...`,
+            status: "loading",
+            isClosable: true,
+            position: "top",
+            duration: "500",
+          })
+        : isError
+        ? toast({
+            title: `${errMessage}`,
+            status: "error",
+            isClosable: true,
+            position: "top",
+            duration: "1000",
+          })
+        : isAuth
+        ? toast({
+            title: `Login Successfull`,
+            status: "success",
+            isClosable: true,
+            position: "top",
+            duration: "1000",
+          })
+        : isLogout
+        ? toast({
+            title: `Logout Successfull`,
+            status: "info",
+            isClosable: true,
+            position: "top",
+            duration: "1000",
+          })
+        : "";
+    }
+  }, [isLoading, isError, isAuth]);
+
   return (
     <Box textAlign={"center"} mt={"3rem"}>
-      {isLoading ? (
-        <Heading>Loading...</Heading>
-      ) : isError ? (
-        <Heading color={"red"}>{errMessage}</Heading>
-      ) : isAuth ? (
-        <Heading color={"green"}>Login Successfull</Heading>
-      ) : logoutMsg ? (
-        <Heading color={"green"}>{logoutMsg}</Heading>
-      ) : (
-        ""
-      )}
       <Box
         mt={"3rem"}
         boxShadow={
@@ -110,7 +140,17 @@ export const LoginPage = () => {
               </Box>
             </InputRightElement>
           </InputGroup>
-          <Button bg={"orange"} w={"100%"} mt={"1rem"} size="lg" type="submit">
+          <Button
+            isDisabled={isAuth}
+            bg={"orange"}
+            w={"100%"}
+            mt={"1rem"}
+            size="lg"
+            type="submit"
+            _hover={{
+              bg: "orange",
+            }}
+          >
             Login
           </Button>
         </form>

@@ -20,7 +20,6 @@ import logoDark from "../assets/logo-dark.png";
 import logoLight from "../assets/logo-light.png";
 import { MdSearch, MdCancel } from "react-icons/md";
 import { FaUser, FaUserSlash } from "react-icons/fa";
-// import { AiOutlineLogin, AiOutlineLogout } from "react-icons/ai";
 import { BiSolidLogInCircle, BiSolidLogOutCircle } from "react-icons/bi";
 
 export const Navbar = ({ query, setQuery }) => {

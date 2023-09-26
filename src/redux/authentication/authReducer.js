@@ -11,16 +11,26 @@ const initState = {
   isAuth: false,
   errMessage: "",
   token: "",
-  logoutMsg: "",
+  isLogout: false,
 };
 
 export const authReducer = (state = initState, { type, payload }) => {
   switch (type) {
     case LOGIN_REQUEST: {
-      return { ...state, isLoading: true, isError: false };
+      return {
+        ...state,
+        isLoading: true,
+        isError: false,
+        isLogout: false,
+      };
     }
     case LOGIN_FAILURE: {
-      return { ...state, isLoading: false, isError: true, errMessage: payload };
+      return {
+        ...state,
+        isLoading: false,
+        isError: true,
+        errMessage: payload,
+      };
     }
     case LOGIN_SUCCESS: {
       return { ...state, isLoading: false, isAuth: true, token: payload };
@@ -31,7 +41,7 @@ export const authReducer = (state = initState, { type, payload }) => {
         isLoading: false,
         isAuth: false,
         token: "",
-        logoutMsg: "Logout Successfull",
+        isLogout: true,
       };
     }
     default:
