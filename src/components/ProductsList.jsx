@@ -3,10 +3,20 @@ import { shallowEqual, useDispatch, useSelector } from "react-redux";
 import { getProducts, deleteProduct } from "../redux/products/action";
 import { ProductsCard } from "./ProductsCard";
 import { Pagination } from "./Pagination";
-import { Box, Heading, SimpleGrid } from "@chakra-ui/react";
+import {
+  Box,
+  Heading,
+  SimpleGrid,
+  Skeleton,
+  Grid,
+  Stack,
+  Center,
+} from "@chakra-ui/react";
 import { useSearchParams } from "react-router-dom";
 import { memo } from "react";
 import { Navbar } from "./Navbar";
+
+const skeleton = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
 
 export const ProductsList = memo(() => {
   const dispatch = useDispatch();
@@ -61,9 +71,32 @@ export const ProductsList = memo(() => {
   return (
     <Box textAlign={"center"}>
       {isLoading ? (
-        <Heading>Loading...</Heading>
+        <Grid
+          templateColumns={{
+            base: "repeat(1,1fr)",
+            sm: "repeat(2,1fr)",
+            md: "repeat(3,1fr)",
+            lg: "repeat(4,1fr)",
+            xl: "repeat(4,1fr)",
+            "2xl": "repeat(5,1fr)",
+          }}
+          gap={"1rem"}
+        >
+          {skeleton?.map((el) => (
+            <Stack key={el}>
+              <Skeleton height="200px" borderRadius={"5px"} />
+              <Skeleton height="20px" borderRadius={"5px"} />
+              <Skeleton height="20px" borderRadius={"5px"} />
+              <Skeleton height="20px" borderRadius={"5px"} />
+              <Skeleton height="20px" borderRadius={"5px"} />
+              <Skeleton height="35px" borderRadius={"5px"} />
+            </Stack>
+          ))}
+        </Grid>
       ) : isError ? (
-        <Heading>{errMessage}</Heading>
+        <Center>
+          <Heading>{errMessage}</Heading>
+        </Center>
       ) : (
         <Box>
           <SimpleGrid
