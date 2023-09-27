@@ -67,7 +67,7 @@ export const Sidebar = () => {
   }, [category, gender, size, order]);
 
   return (
-    <VStack pos={"sticky"} top={"102px"} gap={"1rem"} align={"flex-start"}>
+    <VStack pos={"sticky"} top={"110px"} gap={"1rem"} align={"flex-start"}>
       <Box>
         <Heading size={"md"} mb={".5rem"}>
           Filter by category

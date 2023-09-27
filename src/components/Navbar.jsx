@@ -32,7 +32,13 @@ export const Navbar = ({ query, setQuery }) => {
   };
 
   return (
-    <Flex minW={"100%"} justify={"space-between"} align={"center"}>
+    <Flex
+      minW={"100%"}
+      justify={"space-between"}
+      align={"center"}
+      bg={"black"}
+      p={"1rem 3rem"}
+    >
       <Flex justify={"center"} align={"center"} color={"white"} w={"6%"}>
         <Link to={"/"}>
           <Image src={logoDark} alt={"Home"} minW={"100%"} />

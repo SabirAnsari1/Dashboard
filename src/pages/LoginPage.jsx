@@ -96,17 +96,7 @@ export const LoginPage = () => {
 
   return (
     <Box textAlign={"center"}>
-      <Box
-        h={"70px"}
-        display={"flex"}
-        alignItems={"center"}
-        bg={"black"}
-        fontSize={"3xl"}
-        pos={"sticky"}
-        top={"0"}
-        p={"0 3rem 0 3rem"}
-        zIndex={1}
-      >
+      <Box pos={"sticky"} top={"0"} zIndex={1}>
         <Navbar />
       </Box>
 

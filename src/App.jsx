@@ -9,11 +9,11 @@ function App() {
     // <Box bgColor={bgColor} color={color}>
     <Box>
       {/* <Box
-        h={"70px"}
         display={"flex"}
         alignItems={"center"}
-        bg={"black"}
         fontSize={"3xl"}
+        h={"70px"}
+        bg={"black"}
         pos={"sticky"}
         top={"0"}
         p={"0 3rem 0 3rem"}

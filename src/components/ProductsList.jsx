@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { shallowEqual, useDispatch, useSelector } from "react-redux";
+import React from "react";
+import { shallowEqual, useSelector } from "react-redux";
 import { getProducts, deleteProduct } from "../redux/products/action";
 import { ProductsCard } from "./ProductsCard";
 import { Pagination } from "./Pagination";
@@ -12,14 +12,11 @@ import {
   Stack,
   Center,
 } from "@chakra-ui/react";
-import { useSearchParams } from "react-router-dom";
 import { memo } from "react";
-import { Navbar } from "./Navbar";
 
 const skeleton = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
 
-export const ProductsList = memo(() => {
-  const dispatch = useDispatch();
+export const ProductsList = memo(({ page, handlePage, handleDelete }) => {
   const { isLoading, isError, errMessage, products, totalPage } = useSelector(
     (store) => ({
       isLoading: store.productsReducer.isLoading,
@@ -30,43 +27,6 @@ export const ProductsList = memo(() => {
     }),
     shallowEqual
   );
-  const [page, setPage] = useState(1);
-  const [limit] = useState(12);
-  const [query, setQuery] = useState("");
-  const [searchParams] = useSearchParams();
-
-  const queryParams = {
-    params: {
-      q: query && query,
-      _limit: limit,
-      _page: page,
-      category: searchParams.getAll("category"),
-      gender: searchParams.getAll("gender"),
-      size: searchParams.getAll("size"),
-      _sort: searchParams.get("order") && "price",
-      _order: searchParams.get("order"),
-    },
-  };
-
-  useEffect(() => {
-    dispatch(getProducts(queryParams));
-  }, [query, page, searchParams]);
-
-  useEffect(() => {
-    if (products.length === 0 && page > 1) {
-      setPage(1);
-    }
-  }, [products]);
-
-  const handlePage = (pgno) => {
-    setPage(pgno);
-  };
-
-  const handleDelete = (id) => {
-    dispatch(deleteProduct(id)).then((res) => {
-      dispatch(getProducts(queryParams));
-    });
-  };
 
   return (
     <Box textAlign={"center"}>

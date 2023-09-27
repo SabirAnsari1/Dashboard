@@ -12,6 +12,7 @@ export const Pagination = ({ totalPage, page, handlePage }) => {
             onClick={() => handlePage(index + 1)}
             bg="orange"
             isDisabled={page === index + 1}
+            _hover={{ bg: "orange" }}
           >
             {index + 1}
           </Button>

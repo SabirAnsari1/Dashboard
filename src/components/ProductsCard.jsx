@@ -17,6 +17,7 @@ import {
   useDisclosure,
 } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 export const ProductsCard = ({
   id,
@@ -36,6 +37,7 @@ export const ProductsCard = ({
   const { colorMode } = useColorMode();
   const { isOpen, onOpen, onClose } = useDisclosure();
   const cancelRef = useRef();
+  const isAuth = useSelector((store) => store.authReducer.isAuth);
 
   return (
     <Flex
@@ -62,9 +64,16 @@ export const ProductsCard = ({
         {/* <Button bg="orange" onClick={() => handleDelete(id)}>
           Delete
         </Button> */}
-        <Button bg="orange" onClick={onOpen}>
+        <Button
+          bg="orange"
+          isDisabled={!isAuth}
+          onClick={onOpen}
+          _hover={{ bg: "orange" }}
+        >
           Delete
         </Button>
+
+        {/* AlertDialog for delete */}
         <AlertDialog
           isOpen={isOpen}
           leastDestructiveRef={cancelRef}
