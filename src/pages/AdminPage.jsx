@@ -9,6 +9,7 @@ import {
 } from "@chakra-ui/react";
 import { postProduct } from "../redux/products/action";
 import { shallowEqual, useDispatch, useSelector } from "react-redux";
+import { Navbar } from "../components/Navbar";
 
 const initState = {
   image: "",
@@ -47,7 +48,21 @@ export const AdminPage = () => {
   };
 
   return (
-    <Box textAlign={"center"} mt={"3rem"}>
+    <Box textAlign={"center"}>
+      <Box
+        h={"70px"}
+        display={"flex"}
+        alignItems={"center"}
+        bg={"black"}
+        fontSize={"3xl"}
+        pos={"sticky"}
+        top={"0"}
+        p={"0 3rem 0 3rem"}
+        zIndex={1}
+      >
+        <Navbar />
+      </Box>
+
       {isLoading ? (
         <Heading>Adding new product...</Heading>
       ) : isError ? (

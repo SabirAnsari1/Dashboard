@@ -8,7 +8,7 @@ function App() {
   return (
     // <Box bgColor={bgColor} color={color}>
     <Box>
-      <Box
+      {/* <Box
         h={"70px"}
         display={"flex"}
         alignItems={"center"}
@@ -20,7 +20,7 @@ function App() {
         zIndex={1}
       >
         <Navbar />
-      </Box>
+      </Box> */}
       <Box>
         <AllRoutes />
       </Box>

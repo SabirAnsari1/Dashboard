@@ -14,6 +14,7 @@ import {
 } from "@chakra-ui/react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { FaRegEyeSlash, FaRegEye } from "react-icons/fa";
+import { Navbar } from "../components/Navbar";
 
 export const LoginPage = () => {
   const [email, setEmail] = useState("");
@@ -94,7 +95,21 @@ export const LoginPage = () => {
   }, [isLoading, isError, isAuth]);
 
   return (
-    <Box textAlign={"center"} mt={"3rem"}>
+    <Box textAlign={"center"}>
+      <Box
+        h={"70px"}
+        display={"flex"}
+        alignItems={"center"}
+        bg={"black"}
+        fontSize={"3xl"}
+        pos={"sticky"}
+        top={"0"}
+        p={"0 3rem 0 3rem"}
+        zIndex={1}
+      >
+        <Navbar />
+      </Box>
+
       <Box
         mt={"3rem"}
         boxShadow={

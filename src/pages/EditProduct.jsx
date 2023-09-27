@@ -10,6 +10,7 @@ import {
   useColorMode,
 } from "@chakra-ui/react";
 import { editProduct } from "../redux/products/action";
+import { Navbar } from "../components/Navbar";
 
 export const EditProduct = () => {
   const { id } = useParams();
@@ -44,7 +45,21 @@ export const EditProduct = () => {
   };
 
   return (
-    <Box textAlign={"center"} mt={"3rem"}>
+    <Box textAlign={"center"}>
+      <Box
+        h={"70px"}
+        display={"flex"}
+        alignItems={"center"}
+        bg={"black"}
+        fontSize={"3xl"}
+        pos={"sticky"}
+        top={"0"}
+        p={"0 3rem 0 3rem"}
+        zIndex={1}
+      >
+        <Navbar />
+      </Box>
+
       {isLoading ? (
         <Heading>Updating...</Heading>
       ) : isError ? (
