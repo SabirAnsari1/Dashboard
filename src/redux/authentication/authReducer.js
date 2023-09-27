@@ -11,7 +11,6 @@ const initState = {
   isAuth: false,
   errMessage: "",
   token: "",
-  isLogout: false,
 };
 
 export const authReducer = (state = initState, { type, payload }) => {
@@ -21,7 +20,6 @@ export const authReducer = (state = initState, { type, payload }) => {
         ...state,
         isLoading: true,
         isError: false,
-        isLogout: false,
       };
     }
     case LOGIN_FAILURE: {
@@ -41,7 +39,6 @@ export const authReducer = (state = initState, { type, payload }) => {
         isLoading: false,
         isAuth: false,
         token: "",
-        isLogout: true,
       };
     }
     default:
