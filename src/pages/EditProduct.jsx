@@ -117,8 +117,9 @@ export const EditProduct = () => {
             size="lg"
             fontWeight={"semibold"}
             mb={"1rem"}
+            cursor={"pointer"}
           >
-            <option>Select</option>
+            <option>Select Category</option>
             <option value="top-wear">Top Wear</option>
             <option value="bottom-wear">Bottom Wear</option>
             <option value="foot-wear">Foot Wear</option>
@@ -131,8 +132,9 @@ export const EditProduct = () => {
             size="lg"
             fontWeight={"semibold"}
             mb={"1rem"}
+            cursor={"pointer"}
           >
-            <option>Select</option>
+            <option>Select Gender</option>
             <option value="male">Men</option>
             <option value="female">Women</option>
             <option value="kids">Kids</option>
@@ -145,8 +147,9 @@ export const EditProduct = () => {
             size="lg"
             fontWeight={"semibold"}
             mb={"1rem"}
+            cursor={"pointer"}
           >
-            <option>Select</option>
+            <option>Select Size</option>
             <option value="s">Small</option>
             <option value="m">Medium</option>
             <option value="l">Large</option>
@@ -154,7 +157,7 @@ export const EditProduct = () => {
             <option value="xxl">XX-Large</option>
           </Select>
           <Button bg={"orange"} w={"100%"} mt={"1rem"} size="lg" type="submit">
-            Add Product
+            Edit Product
           </Button>
         </form>
       </Box>
