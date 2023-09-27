@@ -38,7 +38,7 @@ export const ProductsList = memo(({ page, handlePage, handleDelete }) => {
             md: "repeat(3,1fr)",
             lg: "repeat(4,1fr)",
             xl: "repeat(4,1fr)",
-            "2xl": "repeat(5,1fr)",
+            "2xl": "repeat(4,1fr)",
           }}
           gap={"1rem"}
         >
