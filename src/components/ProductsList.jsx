@@ -57,6 +57,10 @@ export const ProductsList = memo(({ page, handlePage, handleDelete }) => {
         <Center>
           <Heading>{errMessage}</Heading>
         </Center>
+      ) : products.length === 0 ? (
+        <Center>
+          <Heading>No Results Found, Please Try Again</Heading>
+        </Center>
       ) : (
         <Box>
           <SimpleGrid

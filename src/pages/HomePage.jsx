@@ -30,7 +30,15 @@ export const HomePage = () => {
 
   useEffect(() => {
     dispatch(getProducts(queryParams));
-  }, [query, page, searchParams]);
+  }, [page, searchParams]);
+
+  useEffect(() => {
+    let timer = setTimeout(() => {
+      dispatch(getProducts(queryParams));
+    }, 1000);
+
+    return () => clearTimeout(timer);
+  }, [query]);
 
   useEffect(() => {
     if (products.length === 0 && page > 1) {
