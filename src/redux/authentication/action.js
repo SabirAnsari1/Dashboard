@@ -1,4 +1,9 @@
-import { LOGIN_FAILURE, LOGIN_REQUEST, LOGIN_SUCCESS, LOGOUT_SUCCESS } from "../actionTypes";
+import {
+  LOGIN_FAILURE,
+  LOGIN_REQUEST,
+  LOGIN_SUCCESS,
+  LOGOUT_SUCCESS,
+} from "../actionTypes";
 import axios from "axios";
 const URL = `https://reqres.in/api/login`;
 
@@ -28,6 +33,10 @@ export const login = (user) => async (dispatch) => {
   }
 };
 
-export const logout = (dispatch) => {
-  dispatch(logoutSuccessAction());
+export const logout = async (dispatch) => {
+  try {
+    dispatch(logoutSuccessAction());
+  } catch (error) {
+    throw new Error(error);
+  }
 };

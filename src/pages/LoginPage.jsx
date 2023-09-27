@@ -82,14 +82,6 @@ export const LoginPage = () => {
             position: "top",
             duration: "1000",
           })
-        : isLogout
-        ? toast({
-            title: `Logout Successfull`,
-            status: "info",
-            isClosable: true,
-            position: "top",
-            duration: "1000",
-          })
         : "";
     }
   }, [isLoading, isError, isAuth]);

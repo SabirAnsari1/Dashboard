@@ -12,6 +12,7 @@ import {
   InputLeftElement,
   Input,
   InputRightElement,
+  useToast,
 } from "@chakra-ui/react";
 import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../redux/authentication/action";
@@ -26,9 +27,18 @@ export const Navbar = ({ query, setQuery }) => {
   const { colorMode, toggleColorMode } = useColorMode();
   const isAuth = useSelector((store) => store.authReducer.isAuth);
   const dispatch = useDispatch();
+  const toast = useToast();
 
   const handleLogout = () => {
-    dispatch(logout);
+    dispatch(logout).then((res) => {
+      toast({
+        title: `Logout Successfull`,
+        status: "info",
+        isClosable: true,
+        position: "top",
+        duration: "1000",
+      });
+    });
   };
 
   return (
