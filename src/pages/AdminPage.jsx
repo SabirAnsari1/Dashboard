@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   Box,
   Input,
@@ -6,6 +6,7 @@ import {
   Select,
   useColorMode,
   Heading,
+  useToast,
 } from "@chakra-ui/react";
 import { postProduct } from "../redux/products/action";
 import { shallowEqual, useDispatch, useSelector } from "react-redux";
@@ -33,6 +34,7 @@ export const AdminPage = () => {
     }),
     shallowEqual
   );
+  const toast = useToast();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -43,9 +45,39 @@ export const AdminPage = () => {
 
   const handleAddProduct = (e) => {
     e.preventDefault();
-    dispatch(postProduct(newProduct));
+    dispatch(postProduct(newProduct)).then((res) => {
+      toast({
+        title: `New Product Added Successfully`,
+        status: "success",
+        isClosable: true,
+        position: "top",
+        duration: "1000",
+      });
+    });
     setNewProduct(initState);
   };
+
+  useEffect(() => {
+    {
+      isLoading
+        ? toast({
+            title: `Adding New Product`,
+            status: "loading",
+            isClosable: true,
+            position: "top",
+            duration: "500",
+          })
+        : isError
+        ? toast({
+            title: `${errMessage}`,
+            status: "error",
+            isClosable: true,
+            position: "top",
+            duration: "1000",
+          })
+        : "";
+    }
+  }, [isLoading, isError]);
 
   return (
     <Box textAlign={"center"}>
@@ -53,13 +85,6 @@ export const AdminPage = () => {
         <Navbar />
       </Box>
 
-      {isLoading ? (
-        <Heading>Adding new product...</Heading>
-      ) : isError ? (
-        <Heading color={"red"}>{errMessage}</Heading>
-      ) : (
-        ""
-      )}
       <Box
         mt={"3rem"}
         boxShadow={

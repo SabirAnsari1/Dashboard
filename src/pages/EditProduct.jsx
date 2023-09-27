@@ -8,6 +8,7 @@ import {
   Select,
   Button,
   useColorMode,
+  useToast,
 } from "@chakra-ui/react";
 import { editProduct } from "../redux/products/action";
 import { Navbar } from "../components/Navbar";
@@ -26,6 +27,7 @@ export const EditProduct = () => {
   const [product, setProduct] = useState({});
   const dispatch = useDispatch();
   const { colorMode } = useColorMode();
+  const toast = useToast();
 
   useEffect(() => {
     const data = products.find((el) => el.id === +id);
@@ -41,8 +43,38 @@ export const EditProduct = () => {
 
   const handleEditProduct = (e) => {
     e.preventDefault();
-    dispatch(editProduct(id, product));
+    dispatch(editProduct(id, product)).then((res) => {
+      toast({
+        title: `Product Updated Successfully`,
+        status: "success",
+        isClosable: true,
+        position: "top",
+        duration: "1000",
+      });
+    });
   };
+
+  useEffect(() => {
+    {
+      isLoading
+        ? toast({
+            title: `Updating Product Details`,
+            status: "loading",
+            isClosable: true,
+            position: "top",
+            duration: "500",
+          })
+        : isError
+        ? toast({
+            title: `${errMessage}`,
+            status: "error",
+            isClosable: true,
+            position: "top",
+            duration: "1000",
+          })
+        : "";
+    }
+  }, [isLoading, isError]);
 
   return (
     <Box textAlign={"center"}>
@@ -50,13 +82,6 @@ export const EditProduct = () => {
         <Navbar />
       </Box>
 
-      {isLoading ? (
-        <Heading>Updating...</Heading>
-      ) : isError ? (
-        <Heading color={"red"}>{errMessage}</Heading>
-      ) : (
-        ""
-      )}
       <Box
         mt={"3rem"}
         boxShadow={
