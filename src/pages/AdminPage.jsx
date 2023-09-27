@@ -153,11 +153,11 @@ export const AdminPage = () => {
             cursor={"pointer"}
           >
             <option>Select Category</option>
-            <option value="cosmetic">Cosmetic</option>
-            <option value="home-decor">Home Decor</option>
             <option value="top-wear">Top Wear</option>
             <option value="bottom-wear">Bottom Wear</option>
             <option value="foot-wear">Foot Wear</option>
+            <option value="cosmetic">Cosmetic</option>
+            <option value="home-decor">Home Decor</option>
           </Select>
           <Select
             name="gender"
