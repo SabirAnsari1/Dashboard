@@ -98,7 +98,7 @@ export const Navbar = ({ query, setQuery }) => {
         </InputGroup>
       </Flex>
 
-      <Flex w={"12%"} justify={"space-between"} align={"center"}>
+      <Flex gap={".3rem"} align={"center"}>
         <Link to={"/admin"}>
           <IconButton
             aria-label={"admin"}
