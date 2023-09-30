@@ -7,7 +7,7 @@ import {
   PRODUCT_REQUEST,
 } from "../actionTypes";
 import axios from "axios";
-const URL = `https://dashboard-server-sabiransari1.onrender.com`;
+const URL = `https://dashboard-json-server-sabiransari1.onrender.com`;
 
 export const getProducts = (queryParams) => async (dispatch) => {
   try {
