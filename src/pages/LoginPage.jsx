@@ -64,7 +64,7 @@ export const LoginPage = () => {
             status: "loading",
             isClosable: true,
             position: "top",
-            duration: "500",
+            duration: 500,
           })
         : isError
         ? toast({
@@ -72,7 +72,7 @@ export const LoginPage = () => {
             status: "error",
             isClosable: true,
             position: "top",
-            duration: "1000",
+            duration: 2000,
           })
         : isAuth
         ? toast({
@@ -80,7 +80,7 @@ export const LoginPage = () => {
             status: "success",
             isClosable: true,
             position: "top",
-            duration: "1000",
+            duration: 1000,
           })
         : "";
     }
