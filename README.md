@@ -29,8 +29,8 @@ Contributions are welcome! If you find any issues or want to add new features, p
 ## Acknowledgments
 CRUD-Dashboard was inspired by the need for a simple and intuitive tool to interact with databases. It utilizes various open-source libraries and frameworks to provide a seamless user experience.
 
-1. HTML5
-2. CSS3
+1. HTML
+2. CSS
 3. JavaScript
 4. JSON-Server
 5. React
